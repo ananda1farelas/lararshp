@@ -1,0 +1,285 @@
+/* Header & Subnav */
+.header {
+    width: 100%;
+    padding: 15px 0;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+}
+
+.subnav {
+    background: yellow;
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.subnav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding: 6px 10px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.subnav a:hover {
+    background: orange;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.subnav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 3px;
+    background: red;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.subnav a:hover::after {
+    width: 100%;
+}
+
+/* Container Sejarah */
+.sejarah-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    line-height: 1.8;
+    font-family: Arial, sans-serif;
+}
+
+.sejarah-img {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: flex;
+    position: relative;
+    justify-content: center;
+    display: center;
+}
+
+.sejarah-img img {
+    width: 100%;
+    max-height: auto;
+    object-fit: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.sejarah-container h1 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 20px;
+}
+
+.sejarah-container h2 {
+    margin-top: 25px;
+    color: #003366;
+}
+
+.sejarah-container p {
+    margin-bottom: 15px;
+    text-align: justify;
+    font-size: 16px;
+    color: #333;
+}
+
+.sejarah-container ul {
+    margin: 10px 0 20px 25px;
+    color: #333;
+}
+
+.sejarah-container ul li {
+    margin-bottom: 8px;
+}
+
+/* Container Visi Misi */
+.visi-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    line-height: 1.8;
+    font-family: Arial, sans-serif;
+}
+
+.visi-container h1 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 25px;
+}
+
+.visi-container h2 {
+    color: #003366;
+    margin-top: 25px;
+}
+
+.visi-container p {
+    margin-bottom: 15px;
+    text-align: justify;
+    font-size: 16px;
+    color: #333;
+}
+
+.visi-container ul,
+.visi-container ol {
+    margin: 10px 0 20px 25px;
+    color: #333;
+}
+
+.visi-container ul li,
+.visi-container ol li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Container Layanan */
+.layanan-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    line-height: 1.8;
+    font-family: Arial, sans-serif;
+}
+
+.layanan-container h1 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 25px;
+}
+
+.layanan-container h2 {
+    margin-top: 25px;
+    color: #003366;
+}
+
+.layanan-container h3 {
+    margin-top: 15px;
+    color: #0055aa;
+    font-size: 18px;
+}
+
+.layanan-container p {
+    margin-bottom: 15px;
+    text-align: justify;
+    font-size: 16px;
+    color: #333;
+}
+
+.layanan-container ul {
+    margin: 10px 0 20px 25px;
+    color: #333;
+}
+
+.layanan-container ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+
+.struktur-container {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    background: #ffffffcc; /* semi transparan putih */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+}
+
+/* Header Logo & Judul */
+.struktur-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.struktur-header h1 {
+    flex: 1;
+    text-align: center;
+    color: #003366;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.struktur-header .logo {
+    width: 120px;
+    height: 120px;
+}
+
+
+.struktur-container h1 {
+    color: #003366;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.struktur-container h1 {
+    font-size: 22px;
+}
+
+.struktur-foto {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Card per Orang */
+.struktur-card {
+    width: 220px;
+    text-align: center;
+}
+
+/* Foto dengan ukuran seragam */
+.struktur-card img {
+    width: 230px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Posisi Direktur (di atas dan sedikit naik) */
+.direktur {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+/* Bar biru bawah */
+.struktur-footer {
+    background: #325aa8;
+    color: yellow;
+    font-weight: bold;
+    letter-spacing: 6px;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 40px;
+}
