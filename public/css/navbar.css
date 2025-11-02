@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */ 
+.navbar {
+    background: linear-gradient(90deg, #003366, #004080);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* Menu kiri */
+.nav-left {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}   
+
+/* Menu kanan (login) */
+.nav-right {
+    list-style: none;
+}
+
+.nav-left li,
+.nav-right li {
+    position: relative;
+}
+
+.nav-left a,
+.nav-right a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* Hover → bg berubah */
+.nav-left a:hover,
+.nav-right a:hover {
+    background: rgba(255,255,255,0.15);
+    color: #ffcc00;
+    transform: translateY(-2px);
+}
+
+/* === Dropdown === */
+.dropdown > a::after {
+    content: ">";
+    margin-left: 6px;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
+.dropdown:hover > a::after {
+    transform: rotate(90deg);
+    color: #ffcc00;
+}
+
+/* === Dropdown menu === */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #004080;
+    list-style: none;
+    min-width: 180px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #0066cc;
+    padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* === Tombol login === */
+.btn-login {
+    background: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.btn-login:hover {
+    background: #ffdb4d;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+
+.header {
+    width: 100%;
+    padding: 15px 0;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+}
+
+/* Alert error */
+.alert {
+    background: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Input group */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #004080;
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 8px rgba(0,102,204,0.3);
+}
+
+/* Tombol login */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #004080;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #0066cc;
+    transform: scale(1.03);
+}
+
+

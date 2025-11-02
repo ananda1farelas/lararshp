@@ -2,18 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class JenisHewan extends Model
 {
+    use HasFactory;
+
     protected $table = 'jenis_hewan';
     protected $primaryKey = 'idjenis_hewan';
     public $timestamps = false;
-
     protected $fillable = ['nama_jenis_hewan'];
 
-    public function rasHewan()
+    public function rasHewans()
     {
-        return $this->hasMany(RasHewan::class, 'idjenis_hewan');
+        return $this->hasMany(RasHewan::class, 'idjenis_hewan', 'idjenis_hewan');
     }
 }

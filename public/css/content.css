@@ -1,4 +1,13 @@
 /* Header & Subnav */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* ubah jadi kolom */
+    margin-top: 50px;
+}
+
+
 .header {
     width: 100%;
     padding: 15px 0;
@@ -282,4 +291,35 @@
     padding: 12px;
     border-radius: 8px;
     margin-top: 40px;
+}
+
+/* Footer */
+.footer {
+    background-color: #3a3a3a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 40px;
+    font-size: 14px;
+    border-top: 2px solid orange;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-right h4 {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.footer p {
+    margin: 4px 0;
+    line-height: 1.5;
 }

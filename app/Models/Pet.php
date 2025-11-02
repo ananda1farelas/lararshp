@@ -2,28 +2,37 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model
 {
+    use HasFactory;
+
     protected $table = 'pet';
     protected $primaryKey = 'idpet';
     public $timestamps = false;
-
-    protected $fillable = ['nama', 'tanggal_lahir', 'warna_tanda', 'jenis_kelamin', 'idpemilik', 'idras_hewan'];
+    protected $fillable = [
+        'nama',
+        'tanggal_lahir',
+        'warna_tanda',
+        'jenis_kelamin',
+        'idpemilik',
+        'idras_hewan'
+    ];
 
     public function pemilik()
     {
-        return $this->belongsTo(Pemilik::class, 'idpemilik');
+        return $this->belongsTo(Pemilik::class, 'idpemilik', 'idpemilik');
     }
 
-    public function rasHewan()
+    public function ras()
     {
-        return $this->belongsTo(RasHewan::class, 'idras_hewan');
+        return $this->belongsTo(RasHewan::class, 'idras_hewan', 'idras_hewan');
     }
 
-    public function temuDokter()
+    public function temuDokters()
     {
-        return $this->hasMany(TemuDokter::class, 'idpet');
+        return $this->hasMany(TemuDokter::class, 'idpet', 'idpet');
     }
 }

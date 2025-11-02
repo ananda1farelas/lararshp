@@ -58,7 +58,9 @@
   <div class="footer-left">
     <p>&copy; 2024 Universitas Airlangga. All Rights Reserved</p>
   </div>
-  <div class="footer-right">
+</body>
+
+  <footer class="footer-right">
     <h4>RUMAH SAKIT HEWAN PENDIDIKAN</h4>
     <p>GEDUNG RS HEWAN PENDIDIKAN<br>
        rshp@fkh.unair.ac.id<br>
@@ -66,8 +68,5 @@
        Kampus C Universitas Airlangga<br>
        Surabaya 60115, Jawa Timur
     </p>
-  </div>
-</footer>
-
-    </body>
+  </footer>
 </html>

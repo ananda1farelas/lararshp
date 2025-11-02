@@ -1,4 +1,12 @@
 /* Content Section */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* ubah jadi kolom */
+    margin-top: 50px;
+}
+
 .content {
     display: flex;
     justify-content: space-around;
@@ -182,4 +190,51 @@
 .footer p {
     margin: 4px 0;
     line-height: 1.5;
+}
+
+.subnav {
+    background: yellow;
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Item subnav */
+.subnav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding: 6px 10px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+/* Efek hover: background & teks */
+.subnav a:hover {
+    background: orange;
+    color: white;
+    transform: translateY(-3px); /* sedikit naik */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+/* Animasi underline */
+.subnav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 3px;
+    background: red;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.subnav a:hover::after {
+    width: 100%; /* garis penuh pas hover */
 }

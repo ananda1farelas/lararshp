@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>RSHP UNAIR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
 </head>
 <body>
@@ -28,7 +30,7 @@
 
         <div class="video-box">
             <iframe width="450" height="250"
-                src="https://www.youtube.com/embed/rCfvZPECZvE?autoplay=1&mute=1"
+                src="https://www.youtube.com/embed/rCfvZPECZvE?autoplay=1&mute=1&loop=1&playlist=rCfvZPECZvE"
                 title="Video RSHP UNAIR"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

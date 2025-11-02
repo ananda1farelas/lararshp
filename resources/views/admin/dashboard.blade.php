@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 <body>
-
     <header class="header-dashboard">
         <div class="header-left">
             <h1>🐾 RSHP - Dashboard Admin</h1>
@@ -17,18 +16,15 @@
             <a href="{{ route('logout') }}" class="btn danger small">🚪 Logout</a>
         </div>
     </header>
-
     <main class="main-dashboard">
         {{-- Bagian Sambutan --}}
         <section class="welcome-section">
             <h2>Selamat Datang di RSHP UNAIR</h2>
-            <p class="role-info">Anda login sebagai <strong>{{ session('user_role') }}</strong></p>
-
+            <p class="role-info">Anda login sebagai <strong>{{ session('user_role_name') }}</strong></p>
             <div class="menu-links">
-                <a href="{{ route('admin.datamaster') }}" class="btn primary">➡️ Menu Data Master</a>
+                <a href="{{ route('admin.datamaster.index') }}" class="btn primary">➡️ Menu Data Master</a>
             </div>
         </section>
-
         {{-- Bagian Statistik --}}
         <section class="stats-section">
             <h3>📊 Statistik Sistem</h3>
@@ -40,10 +36,6 @@
                 <div class="stat-card">
                     <span class="label">🔐 Total RoleUser</span>
                     <span class="value">{{ $totalRoleUser }}</span>
-                </div>
-                <div class="stat-card">
-                    <span class="label">👪 Total Pemilik</span>
-                    <span class="value">{{ $totalPemilik }}</span>
                 </div>
                 <div class="stat-card">
                     <span class="label">🐾 Total Pet</span>
@@ -72,10 +64,8 @@
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <p>© 2025 RSHP UNAIR | Sistem Informasi Klinik Hewan</p>
     </footer>
-
 </body>
 </html>
