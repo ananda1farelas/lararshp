@@ -10,6 +10,6 @@ class RekamMedisController extends Controller
     public function index()
     {
         $rekamMedis = RekamMedis::with(['temuDokter', 'dokter'])->get();
-        return view('perawat.datamaster.rekammedis.index', compact('rekamMedis'));
+        return view('perawat.datamaster.rekammedis.show', compact('rekamMedis'));
     }
 }

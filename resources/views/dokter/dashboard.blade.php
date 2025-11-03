@@ -16,3 +16,32 @@
             <a href="{{ route('logout') }}" class="btn danger small">🚪 Logout</a>
         </div>
     </header>
+    <main class="main-dashboard">
+    {{-- Bagian Sambutan --}}
+    <section class="welcome-section">
+        <h2>Selamat Datang di RSHP UNAIR</h2>
+        <p class="role-info">Anda login sebagai <strong>{{ session('user_role_name') }}</strong></p>
+        <div class="menu-links">
+            <a href="{{ route('dokter.datamaster.index') }}" class="btn primary">➡️ Menu Dokter</a>
+        </div>
+    </section>
+    <section class="stats-section">
+            <h3>📊 Statistik Sistem</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="label">🩺 Antrian Hari Ini</span>
+                    <span class="value">{{ $totalTemuDokter }}</span>
+                </div>
+                <div class="stat-card">
+                    <span class="label">📋 Total Rekam Medis</span>
+                    <span class="value">{{ $totalRekamMedis }}</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 RSHP UNAIR | Sistem Informasi Klinik Hewan</p>
+    </footer>
+</body>
+</html>

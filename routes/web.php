@@ -61,6 +61,8 @@ Route::middleware(['auth.role:2'])->group(function () {
         Route::resource('rekammedis', App\Http\Controllers\Dokter\datamaster\RekamMedisController::class);
         //detail rekam medis
         Route::resource('detailrekammedis', App\Http\Controllers\Dokter\datamaster\DetailRekamMedisController::class);
+        //temudokter
+        Route::resource('temudokter', App\Http\Controllers\Dokter\datamaster\TemuDokterController::class);
     });
 });
 // Perawat
