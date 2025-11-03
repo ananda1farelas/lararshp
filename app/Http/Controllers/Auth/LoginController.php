@@ -80,16 +80,22 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        // Hapus semua data session
-        Session::flush();
+        // Logout dari sistem autentikasi Laravel
+        Auth::logout();
 
-        // Regenerasi session ID untuk keamanan (opsional tapi disarankan)
+        // Hapus semua data session
         $request->session()->invalidate();
+
+        // Regenerasi token CSRF agar sesi baru aman
         $request->session()->regenerateToken();
 
-        // Arahkan ke halaman login
+        // (Opsional) jika masih ada data tambahan, bisa flush:
+        Session::flush();
+
+        // Redirect ke halaman login
         return redirect('/login')->with('success', 'Berhasil logout.');
     }
+
 
     use AuthenticatesUsers;
 

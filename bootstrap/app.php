@@ -12,9 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-    $middleware->alias([
-    'auth.role' => AuthRoleMiddleware::class,
-    ]);
+        // Tambahkan PreventBackHistory ke grup web TANPA menimpa default-nya
+        $middleware->appendToGroup('web', [
+            \App\Http\Middleware\PreventBackHistory::class,
+        ]);
+
+        // Alias middleware lain tetap
+        $middlewrole' => \Appare->alias([
+            'auth.\Http\Middleware\AuthRoleMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
