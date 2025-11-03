@@ -92,4 +92,23 @@ class RoleController extends Controller
         }
         return view('admin.datamaster.role.delete', compact('role'));
     }
+    
+    private function formatNamaRole($nama)
+    {
+        // Hilangkan spasi berlebih dan kapitalisasi setiap kata
+        $nama = preg_replace('/\s+/', ' ', trim($nama));
+        return ucwords(strtolower($nama));
+    }
+
+    private function validateRole(Request $request)
+    {
+        return $request->validate([
+            'nama_role' => 'required|string|max:100',
+        ]);
+    }
+
+    private function createRole(array $data)
+    {
+        return DB::table('role')->insert($data);
+    }   
 }

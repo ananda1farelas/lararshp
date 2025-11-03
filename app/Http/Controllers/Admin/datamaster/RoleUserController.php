@@ -96,4 +96,28 @@ class RoleUserController extends Controller
         return view('admin.datamaster.role_user.delete', compact('roleUser'));
     }
 
+    private function formatNamaRole($namaRole)
+    {
+        // Hapus spasi di awal dan akhir
+        $namaRole = trim($namaRole);
+        // Ubah ke huruf kecil semua
+        $namaRole = strtolower($namaRole);
+        // Ubah huruf pertama setiap kata menjadi kapital
+        $namaRole = ucwords($namaRole);
+        return $namaRole;
+    }
+
+    private function validateRoleUser(Request $request)
+    {
+        return $request->validate([
+            'iduser' => 'required|exists:user,iduser',
+            'idrole' => 'required|exists:role,idrole',
+        ]);
+    }
+
+    private function createRoleUser(array $data)
+    {
+        return DB::table('role_user')->insert($data);
+    }
+
 }

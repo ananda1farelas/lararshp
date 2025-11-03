@@ -90,4 +90,24 @@ class KodeTindakanTerapiController extends Controller
         $kode = KodeTindakanTerapi::findOrFail($id);
         return view('admin.datamaster.kodetindakanterapi.delete', compact('kode'));
     }
+
+    private function validateKodeTindakanTerapi(Request $request)
+    {
+        return $request->validate([
+            'kode' => 'required|string|max:50',
+            'deskripsi_tindakan_terapi' => 'required|string|max:255',
+            'idkategori' => 'required|integer',
+            'idkategori_klinis' => 'required|integer',
+        ]);
+    }
+
+    private function createKodeTindakanTerapi(array $data)
+    {
+        return KodeTindakanTerapi::create($data);
+    }
+
+    private function formatDeskripsiTindakanTerapi($deskripsi)
+    {
+        return ucwords(strtolower($deskripsi));
+    }
 }

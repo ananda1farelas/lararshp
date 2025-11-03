@@ -79,4 +79,21 @@ class PetController extends Controller
         $pet = Pet::with(['pemilik.user'])->findOrFail($id);
         return view('admin.datamaster.pet.delete', compact('pet'));
     }
+
+    private function formatNamaPet($nama)
+    {
+        return ucwords(strtolower($nama));
+    }
+
+    private function validateNamaPet(Request $request)
+    {
+        return $request->validate([
+            'nama' => 'required|string|max:100',
+        ]);
+    }
+
+    private function createPet(array $data)
+    {
+        return Pet::create($data);
+    }
 }

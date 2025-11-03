@@ -69,4 +69,22 @@ class RasHewanController extends Controller
         $ras = RasHewan::findOrFail($id);
         return view('admin.datamaster.rashewan.delete', compact('ras'));
     }
+
+    private function formatNamaRasHewan($nama)
+    {
+        return ucwords(strtolower($nama));
+    }
+
+    private function createRasHewan(array $data)
+    {
+        return RasHewan::create($data);
+    }
+
+    private function validateRasHewan(Request $request)
+    {
+        return $request->validate([
+            'nama_ras' => 'required|string|max:100',
+            'idjenis_hewan' => 'required|exists:jenis_hewan,idjenis_hewan',
+        ]);
+    }
 }
