@@ -42,7 +42,7 @@
         </a>
 
         <!-- Rekam Medis -->
-        <a href="{{ route('dokter.datamaster.rekammedis.show') }}" class="menu-card">
+        <a href="{{ route('dokter.datamaster.rekammedis.index') }}" class="menu-card">
             <div class="menu-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>

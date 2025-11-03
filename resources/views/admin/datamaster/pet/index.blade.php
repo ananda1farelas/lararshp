@@ -14,7 +14,6 @@
             {{ session('success') }}
         </div>
     @endif
-
     {{-- Tabel --}}
     <table class="modern-table">
         <thead>

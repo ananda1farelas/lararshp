@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+
 <div class="table-container">
     {{-- Header --}}
     <div class="table-header">
@@ -45,6 +46,7 @@
 </div>
 
 <script>
+    // Efek hilang otomatis pada alert sukses
     setTimeout(() => {
         const msg = document.getElementById('flash-message');
         if (msg) {
@@ -52,5 +54,5 @@
             msg.style.opacity = '0';
             setTimeout(() => msg.remove(), 500);
         }
-    }, 1000);
+    }, 1500);
 </script>

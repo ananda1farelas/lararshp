@@ -21,13 +21,14 @@ class JenisHewanController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_jenis_hewan' => 'required|string|max:100',
-        ]);
+        // Panggil helper validasi
+        $validatedData = $this->validateJenisHewan($request);
 
-        JenisHewan::create([
-            'nama_jenis_hewan' => $request->nama_jenis_hewan,
-        ]);
+        // Format nama jenis hewan
+        $validatedData['nama_jenis_hewan'] = $this->formatNamaJenisHewan($validatedData['nama_jenis_hewan']);
+
+        // Simpan data menggunakan helper create
+        $this->createJenisHewan($validatedData);
 
         return redirect()->route('admin.datamaster.jenishewan.index')
                          ->with('success', 'Jenis hewan berhasil ditambahkan!');
@@ -41,14 +42,12 @@ class JenisHewanController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_jenis_hewan' => 'required|string|max:100',
-        ]);
+        $validatedData = $this->validateJenisHewan($request);
+
+        $validatedData['nama_jenis_hewan'] = $this->formatNamaJenisHewan($validatedData['nama_jenis_hewan']);
 
         $jenis = JenisHewan::findOrFail($id);
-        $jenis->update([
-            'nama_jenis_hewan' => $request->nama_jenis_hewan,
-        ]);
+        $jenis->update($validatedData);
 
         return redirect()->route('admin.datamaster.jenishewan.index')
                          ->with('success', 'Jenis hewan berhasil diperbarui!');
@@ -66,5 +65,26 @@ class JenisHewanController extends Controller
     {
         $jenis = JenisHewan::findOrFail($id);
         return view('admin.datamaster.jenishewan.delete', compact('jenis'));
+    }
+
+    /* ===========================
+       HELPER FUNCTIONS
+    =========================== */
+
+    private function validateJenisHewan(Request $request)
+    {
+        return $request->validate([
+            'nama_jenis_hewan' => 'required|string|max:100',
+        ]);
+    }
+
+    private function createJenisHewan(array $data)
+    {
+        return JenisHewan::create($data);
+    }
+
+    private function formatNamaJenisHewan($nama)
+    {
+        return ucwords(strtolower($nama)); // Huruf pertama tiap kata jadi kapital
     }
 }

@@ -21,13 +21,14 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_kategori' => 'required|string|max:100',
-        ]);
+        // Panggil helper validasi
+        $validatedData = $this->validateKategori($request);
 
-        Kategori::create([
-            'nama_kategori' => $request->nama_kategori,
-        ]);
+        // Format nama kategori
+        $validatedData['nama_kategori'] = $this->formatNamaKategori($validatedData['nama_kategori']);
+
+        // Panggil helper buat simpan data
+        $this->createKategori($validatedData);
 
         return redirect()
             ->route('admin.datamaster.kategori.index')
@@ -42,14 +43,15 @@ class KategoriController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_kategori' => 'required|string|max:100',
-        ]);
+        // Validasi
+        $validatedData = $this->validateKategori($request);
 
+        // Format nama kategori
+        $validatedData['nama_kategori'] = $this->formatNamaKategori($validatedData['nama_kategori']);
+
+        // Update data
         $kategori = Kategori::findOrFail($id);
-        $kategori->update([
-            'nama_kategori' => $request->nama_kategori,
-        ]);
+        $kategori->update($validatedData);
 
         return redirect()
             ->route('admin.datamaster.kategori.index')
@@ -58,8 +60,7 @@ class KategoriController extends Controller
 
     public function destroy($id)
     {
-        $kategori = Kategori::findOrFail($id);
-        $kategori->delete();
+        Kategori::findOrFail($id)->delete();
 
         return redirect()
             ->route('admin.datamaster.kategori.index')
@@ -70,5 +71,35 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::findOrFail($id);
         return view('admin.datamaster.kategori.delete', compact('kategori'));
+    }
+
+    /* ===========================
+       HELPER FUNCTIONS
+    =========================== */
+
+    /**
+     * Validasi data kategori.
+     */
+    private function validateKategori(Request $request)
+    {
+        return $request->validate([
+            'nama_kategori' => 'required|string|max:100',
+        ]);
+    }
+
+    /**
+     * Simpan kategori baru ke database.
+     */
+    private function createKategori(array $data)
+    {
+        return Kategori::create($data);
+    }
+
+    /**
+     * Format nama kategori jadi huruf kapital di awal kata.
+     */
+    private function formatNamaKategori($nama)
+    {
+        return ucwords(strtolower($nama));
     }
 }

@@ -11,14 +11,20 @@
           class="add-form">
         @csrf
         @method('PUT')
+
         <div class="form-group">
-            <input type="text" 
-                   name="nama_kategori" 
-                   value="{{ $kategori->nama_kategori }}" 
-                   required 
-                   class="search-box"
-                   placeholder="Masukkan nama kategori">
+            <input 
+                type="text" 
+                name="nama_kategori" 
+                value="{{ old('nama_kategori', $kategori->nama_kategori) }}" 
+                required 
+                class="search-box"
+                placeholder="Masukkan nama kategori">
             <button type="submit" class="add-btn">Update</button>
         </div>
+
+        @error('nama_kategori')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
     </form>
 </div>
