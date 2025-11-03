@@ -57,6 +57,10 @@ Route::middleware(['auth.role:2'])->group(function () {
     Route::get('/dokter/dashboard', [DokterDashboardController::class, 'dashboard'])->name('dokter.dashboard');
     Route::prefix('dokter/datamaster')->name('dokter.datamaster.')->group(function () {
         Route::get('/', [DokterDashboardController::class, 'index'])->name('index');
+        //rekam medis
+        Route::resource('rekammedis', App\Http\Controllers\Dokter\datamaster\RekamMedisController::class);
+        //detail rekam medis
+        Route::resource('detailrekammedis', App\Http\Controllers\Dokter\datamaster\DetailRekamMedisController::class);
     });
 });
 // Perawat
@@ -98,6 +102,7 @@ Route::middleware(['auth.role:5'])->group(function () {
     Route::get('/pemilik/dashboard', [PemilikDashboardController::class, 'dashboard'])->name('pemilik.dashboard');
     Route::prefix('pemilik/datamaster')->name('pemilik.datamaster.')->group(function () {
         Route::get('/', [PemilikDashboardController::class, 'index'])->name('index');
-
+        //pet
+        Route::resource('pet', App\Http\Controllers\Pemilik\datamaster\PetController::class);
     });
 });
