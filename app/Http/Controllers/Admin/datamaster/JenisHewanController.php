@@ -67,14 +67,10 @@ class JenisHewanController extends Controller
         return view('admin.datamaster.jenishewan.delete', compact('jenis'));
     }
 
-    /* ===========================
-       HELPER FUNCTIONS
-    =========================== */
-
     private function validateJenisHewan(Request $request)
     {
         return $request->validate([
-            'nama_jenis_hewan' => 'required|string|max:100',
+            'nama_jenis_hewan' => 'required|string|min:1|max:100',
         ]);
     }
 
@@ -85,6 +81,6 @@ class JenisHewanController extends Controller
 
     private function formatNamaJenisHewan($nama)
     {
-        return ucwords(strtolower($nama)); // Huruf pertama tiap kata jadi kapital
+        return ucwords(strtolower($nama));
     }
 }

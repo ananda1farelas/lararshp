@@ -61,6 +61,7 @@ Route::middleware(['auth.role:2'])->group(function () {
         Route::resource('rekammedis', App\Http\Controllers\Dokter\datamaster\RekamMedisController::class);
         //detail rekam medis
         Route::resource('detailrekammedis', App\Http\Controllers\Dokter\datamaster\DetailRekamMedisController::class);
+        Route::get('detailrekammedis/rekam/{idrekam_medis}', [App\Http\Controllers\Dokter\datamaster\DetailRekamMedisController::class, 'index'])->name('dokter.datamaster.detailrekammedis.byRekam');
         //temudokter
         Route::resource('temudokter', App\Http\Controllers\Dokter\datamaster\TemuDokterController::class);
     });
@@ -80,7 +81,7 @@ Route::middleware(['auth.role:3'])->group(function () {
         //detail rekam medis
         Route::resource('detailrekammedis', App\Http\Controllers\Perawat\Datamaster\DetailRekamMedisController::class);
         Route::get('detailrekammedis/rekam/{idrekam_medis}', [App\Http\Controllers\Perawat\Datamaster\DetailRekamMedisController::class, 'index'])->name('perawat.datamaster.detailrekammedis.byRekam');
-        Route::get('detail_rekam_medis/{id}/delete', [App\Http\Controllers\Perawat\Datamaster\DetailRekamMedisController::class, 'delete'])->name('detail_rekam_medis.delete');
+        Route::get('detail_rekam_medis/{id}/delete', [App\Http\Controllers\Perawat\Datamaster\DetailRekamMedisController::class, 'delete'])->name('detailrekammedis.delete');
     });
 });
 // Resepsionis
@@ -106,5 +107,9 @@ Route::middleware(['auth.role:5'])->group(function () {
         Route::get('/', [PemilikDashboardController::class, 'index'])->name('index');
         //pet
         Route::resource('pet', App\Http\Controllers\Pemilik\datamaster\PetController::class);
+        //temudokter
+        Route::resource('temudokter', App\Http\Controllers\Pemilik\datamaster\TemuDokterController::class);
+        //rekammedis
+        Route::resource('rekammedis', App\Http\Controllers\Pemilik\datamaster\RekamMedisController::class);
     });
 });

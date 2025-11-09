@@ -94,7 +94,7 @@ class KodeTindakanTerapiController extends Controller
     private function validateKodeTindakanTerapi(Request $request)
     {
         return $request->validate([
-            'kode' => 'required|string|max:50',
+            'kode' => 'required|string|min:1|   max:50',
             'deskripsi_tindakan_terapi' => 'required|string|max:255',
             'idkategori' => 'required|integer',
             'idkategori_klinis' => 'required|integer',

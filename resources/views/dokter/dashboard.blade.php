@@ -9,7 +9,7 @@
 <body>
     <header class="header-dashboard">
         <div class="header-left">
-            <h1>🐾 RSHP - Dashboard Perawat</h1>
+            <h1>🐾 RSHP - Dashboard Dokter</h1>
         </div>
         <div class="header-right">
             <span class="welcome-text">Halo, {{ session('user_name') }}</span>

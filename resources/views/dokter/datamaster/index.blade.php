@@ -8,8 +8,8 @@
             </svg>
         </div>
         <div class="header-content">
-            <h2 class="datamaster-title">Data Master Perawat RSHP</h2>
-            <p class="datamaster-subtitle">Kelola antrian pasien dan rekam medis</p>
+            <h2 class="datamaster-title">Data Master Dokter RSHP</h2>
+            <p class="datamaster-subtitle">Lihat antrian pasien dan rekam medis</p>
         </div>
     </div>
 
@@ -25,7 +25,7 @@
 
     <div class="menu-grid">
         <!-- Daftar Antrian -->
-        <a href="{{ route('dokter.datamaster.temudokter.show') }}" class="menu-card">
+        <a href="{{ route('dokter.datamaster.temudokter.index') }}" class="menu-card">
             <div class="menu-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>

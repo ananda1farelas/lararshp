@@ -10,6 +10,6 @@ class TemuDokterController extends Controller
     public function index()
     {
         $temuDokter = TemuDokter::with(['pet', 'roleUser'])->get();
-        return view('perawat.datamaster.temudokter.show', compact('temuDokter'));
+        return view('dokter.datamaster.temudokter.index', compact('temuDokter'));
     }
 }

@@ -4,15 +4,9 @@
     <div class="table-header">
         <h1 class="table-title">Data Rekam Medis</h1>
         <div class="table-actions">
-            <a href="{{ route('perawat.datamaster.index') }}" class="btn-back">← Kembali</a>
+            <a href="{{ route('dokter.datamaster.index') }}" class="btn-back">← Kembali</a>
         </div>
     </div>
-
-    @if(session('success'))
-        <div class="alert alert-success" id="flash-message">
-            {{ session('success') }}
-        </div>
-    @endif
 
     <table class="modern-table">
         <thead>
@@ -34,7 +28,7 @@
                     <td>{{ $rm->diagnosa }}</td>
                     <td>{{ $rm->dokter->user->nama ?? '-' }}</td>
                     <td>
-                        <a href="{{ route('perawat.datamaster.detailrekammedis.show', $rm->idrekam_medis) }}" class="btn-action btn-edit">Lihat Detail</a>
+                        <a href="{{ route('dokter.datamaster.detailrekammedis.show', $rm->idrekam_medis) }}" class="btn-action btn-edit">Lihat Detail</a>
                     </td>
                 </tr>
             @empty
@@ -45,15 +39,3 @@
         </tbody>
     </table>
 </div>
-
-<script>
-    // Efek hilang otomatis untuk pesan sukses
-    setTimeout(() => {
-        const msg = document.getElementById('flash-message');
-        if (msg) {
-            msg.style.transition = 'opacity 0.5s ease';
-            msg.style.opacity = '0';
-            setTimeout(() => msg.remove(), 500);
-        }
-    }, 1000);
-</script>

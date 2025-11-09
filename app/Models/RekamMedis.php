@@ -35,4 +35,10 @@ class RekamMedis extends Model
     {
         return $this->hasMany(DetailRekamMedis::class, 'idrekam_medis', 'idrekam_medis');
     }
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class, 'idpet', 'idpet');
+    }
+
 }

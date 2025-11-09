@@ -41,4 +41,9 @@ class PemilikDashboardController extends Controller
             )->count(),
         ]);
     }
+
+    public function index()
+    {
+        return view('pemilik.datamaster.index');
+    }
 }

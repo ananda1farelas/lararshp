@@ -15,6 +15,6 @@ class DetailRekamMedisController extends Controller
             ->where('idrekam_medis', $idrekam_medis)
             ->get();
 
-        return view('perawat.datamaster.detailrekammedis.show', compact('rekamMedis', 'detailRekamMedis'));
+        return view('dokter.datamaster.detailrekammedis.show', compact('rekamMedis', 'detailRekamMedis'));
     }
 }

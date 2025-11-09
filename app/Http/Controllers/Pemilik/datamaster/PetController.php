@@ -3,22 +3,27 @@
 namespace App\Http\Controllers\Pemilik\Datamaster;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Pet;
 use App\Models\Pemilik;
 
 class PetController extends Controller
 {
-    public function show($id)
+    public function index()
     {
         $user = auth()->user();
+
+        // pastikan user punya data pemilik
         $pemilik = Pemilik::where('iduser', $user->iduser)->first();
 
-        $pet = Pet::where('idpet', $id)
-                  ->where('idpemilik', $pemilik->idpemilik)
-                  ->with(['ras'])
-                  ->firstOrFail();
+        if (!$pemilik) {
+            return redirect()->back()->with('error', 'Data pemilik tidak ditemukan.');
+        }
 
-        return view('pemilik.datamaster.pet.show', compact('pet'));
+        $pet = Pet::where('idpemilik', $pemilik->idpemilik)
+                ->with(['ras'])
+                ->get();
+
+        return view('pemilik.datamaster.pet.index', compact('pemilik', 'pet'));
     }
+
 }

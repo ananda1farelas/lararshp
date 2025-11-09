@@ -5,7 +5,7 @@
     <div class="table-header">
         <h1 class="table-title">Daftar Temu Dokter</h1>
         <div class="table-actions">
-            <a href="{{ route('Dokter.datamaster.index') }}" class="btn-back">← Kembali</a>
+            <a href="{{ route('dokter.datamaster.index') }}" class="btn-back">← Kembali</a>
         </div>
     </div>
 
